@@ -10,6 +10,7 @@ import Users.Seguidor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -22,6 +23,8 @@ public class VentanaSeguidor extends JFrame {
     private Seguidor seguidor; 
     JButton botonLike;
     JButton botonDislike;
+    JButton botonSeguir;
+    JComboBox<Famoso> comboFamoso;
     
     
      
@@ -30,18 +33,19 @@ public class VentanaSeguidor extends JFrame {
         cargarVentana();
         cargarBotones();
         cargarNick();
+        cargarFamosos();
         mostrarVentana();
     }
     
     
     private void cargarVentana() {
       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      setSize(500, 500);
+      setSize(500, 600);
     }
     
     private void cargarBotones() {
       botonLike = new JButton("Dar Like");
-	  botonLike.setBounds(20, 350, 130, 30);
+	  botonLike.setBounds(20, 480, 130, 30);
 	  botonLike.addActionListener(new ActionListener() {      
 	    @Override
 	    public void actionPerformed(ActionEvent e) {   
@@ -52,7 +56,7 @@ public class VentanaSeguidor extends JFrame {
       add(botonLike);
       
       botonDislike = new JButton("Dar dislike");
-	  botonDislike.setBounds(180, 350, 130, 30);
+	  botonDislike.setBounds(180, 480, 130, 30);
 	  botonDislike.addActionListener(new ActionListener() {      
 	    @Override
 	    public void actionPerformed(ActionEvent e) {   
@@ -61,6 +65,17 @@ public class VentanaSeguidor extends JFrame {
 	    }          
       });
       add(botonDislike);
+      
+      botonSeguir = new JButton("Dar dislike");
+	  botonSeguir.setBounds(320, 480, 130, 30);
+	  botonSeguir.addActionListener(new ActionListener() {      
+	    @Override
+	    public void actionPerformed(ActionEvent e) {   
+               
+              seguir();
+	    }          
+      });
+      add(botonSeguir);
     }
     
     private void likeMensaje(){
@@ -68,6 +83,10 @@ public class VentanaSeguidor extends JFrame {
     }
     
     private void dislikeMensaje(){
+        
+    }
+    
+    private void seguir(){
         
     }
     
@@ -89,5 +108,21 @@ public class VentanaSeguidor extends JFrame {
     public void mostrarEmergente(String mensaje) {
 	    Emergente emergente = new Emergente(mensaje);
             emergente.mostrar();
+    }
+
+    private void cargarFamosos() {
+        JLabel famosos = new JLabel("Famosos:");
+        famosos.setBounds(30,350,130,30);
+        add(famosos);
+        comboFamoso = new JComboBox<Famoso>();
+        /*
+            for(Famoso f : s) {
+		comboFamoso.addItem(f);
+	    }
+*/
+        comboFamoso.setBounds(90, 350, 130, 30);
+        
+        add(comboFamoso);
+        
     }
 }
