@@ -3,14 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui;
+package main;
+
+import server.Server;
 
 /**
  *
  * @author Gabriel
  */
-public class Main {
-    public static void main(String[] args){   
-    	Ventana ventana = new Ventana();
+public class MainServer {
+    public static void main(String[] args) {
+    Server server = new Server(5000);
+    if(server.initServer()) {
+      server.run();
     }
+  }
 }

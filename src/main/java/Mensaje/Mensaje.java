@@ -12,13 +12,12 @@ package Mensaje;
 public class Mensaje {
     private String descripcion;
     private String titulo;
-    private int likes;
+    private int likes=0;
     private int id;
 
-    public Mensaje(String descripcion, String titulo, int likes, int id) {
+    public Mensaje(String descripcion,String titulo, int id) {
         this.descripcion = descripcion;
         this.titulo = titulo;
-        this.likes = likes;
         this.id = id;
     }
 

@@ -6,7 +6,8 @@
 package Users;
 
 import java.util.ArrayList;
-
+import client.Client;
+import dto.Message;
 /**
  *
  * @author Gabriel
@@ -35,6 +36,10 @@ public class Seguidor {
 
     public void setSeguidos(ArrayList<Famoso> seguidos) {
         this.seguidos = seguidos;
+    }
+    
+    public void addSeguidos(String famosoNombre){
+        seguidos.add(new Famoso(famosoNombre,famosoNombre));
     }
     
     public void seguir(Famoso f){

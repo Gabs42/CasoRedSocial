@@ -7,7 +7,8 @@ package Users;
 
 import Mensaje.Mensaje;
 import java.util.ArrayList;
-
+import client.Client;
+import dto.Message;
 /**
  *
  * @author Gabriel
@@ -64,7 +65,13 @@ public class Famoso {
         this.mensajes = mensajes;
     }
     
+    public void addMensajes(Mensaje msg){
+        this.mensajes.add(msg);
+    }
     
+    public String toString(){
+        return this.getNombre();
+    }
     
     public void darseDeBaja(){
         
